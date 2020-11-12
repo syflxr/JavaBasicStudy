@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.function.*;
 
 
-public class UserDataDaoTset {
+public class UserDataDaoTest {
     @Autowired
     UserDataDao userDataDao;
 
