@@ -1,6 +1,8 @@
 import javafx.util.Pair;
+import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * 功能描述:泛型测试
@@ -43,7 +45,30 @@ public class GenericTest {
 
     }
 
-    void genericTest1(){
+    /**
+     * 功能描述:测试获取泛型的类型，实际上都是Pair<Object>
+     * @param: []
+     * @return: void
+     * @auther: shenyafeng
+     * @date: 2020/11/13 16:51
+     */
+    @Test
+    public void GenericClassTest(){
+        Parent<Integer> p1=new Parent<>();
+        Parent<Long> p2=new Parent<>();
+        System.out.println(p1.getClass()==p2.getClass());//true
+        System.out.println(p1.getClass()==Parent.class);//true
+
+        if(Parent<Integer>.class==Parent.class){
+            System.out.println(true);
+        }
+        if(p1 instanceof Parent<Integer>){
+            System.out.println(true);
+        }
+    }
+
+    @Test
+    public void genericTest1(){
         Parent<Integer> p=new Child<Integer>();
         Number n=new Integer(7);
         //Parent<Number> wrong=new Child<Integer>();
@@ -53,4 +78,7 @@ public class GenericTest {
         Parent obj=new Parent();
 
     }
+
+
+
 }

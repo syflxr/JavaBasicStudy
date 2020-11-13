@@ -47,6 +47,11 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>16.0</version>
+        </dependency>
     </dependencies>
     <packaging>jar</packaging>
 </project>
