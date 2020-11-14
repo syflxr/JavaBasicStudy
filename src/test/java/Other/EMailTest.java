@@ -5,5 +5,4 @@ package Other;
  * @Date: 2020/11/13 15:20
  * @Description:
  */
-public class EMailTest {
-}
+

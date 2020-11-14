@@ -38,8 +38,8 @@ public class UserDataDaoTest {
         System.out.println(str.substring(0,2));//ab
         System.out.println(str.toLowerCase());
         System.out.println(str.toUpperCase());//ABCABCABCABC
-        System.out.println(str.indexOf('b'));//2
-        System.out.println(str.indexOf('b',3));
+        System.out.println(str.indexOf('b'));//1
+        System.out.println(str.indexOf('b',3));//4
         System.out.println(str.lastIndexOf('b'));
         System.out.println(str.lastIndexOf('b',9));
         str=" "+str+" ";// abcabcabcabc

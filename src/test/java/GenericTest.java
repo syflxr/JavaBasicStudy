@@ -2,6 +2,8 @@ import javafx.util.Pair;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 /**
@@ -13,6 +15,12 @@ import java.util.concurrent.Callable;
  */
 public class GenericTest {
     static class Parent<T> {
+        //构造函数不能用New T，因为
+        /*
+        public Parent(){
+            first=new T();
+            second=new T();
+        }*/
         private T first;
         private T last;
         //static T t;不可用于静态变量和静态方法，应该与初始化时期有关，静态变量可以理解为与类无关的
@@ -58,13 +66,15 @@ public class GenericTest {
         Parent<Long> p2=new Parent<>();
         System.out.println(p1.getClass()==p2.getClass());//true
         System.out.println(p1.getClass()==Parent.class);//true
+        new HashMap<Long,Long>().entrySet();
 
-        if(Parent<Integer>.class==Parent.class){
+        //从泛型类中获取class编译期间会报错
+        /**if(Parent<Integer>.class==Parent.class){
             System.out.println(true);
         }
         if(p1 instanceof Parent<Integer>){
             System.out.println(true);
-        }
+        }**/
     }
 
     @Test
@@ -80,5 +90,14 @@ public class GenericTest {
     }
 
 
+    @Test
+    public void MapTest(){
+        Map map=new HashMap<Long,Long>();
+        map.put(1,1);
+        map.put(2,1);
+        map.put(3,1);
+        map.put(4,1);
+
+    }
 
 }
