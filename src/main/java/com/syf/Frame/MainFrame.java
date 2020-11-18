@@ -1,17 +1,14 @@
-package Frame;
+package com.syf.Frame;
 
-import Dao.UserDataDao;
-import Entity.UserDataEntity;
-import Utils.Utils;
+import com.syf.Dao.UserDataDao;
+import com.syf.Entity.UserDataEntity;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
-import javax.swing.text.html.parser.Entity;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

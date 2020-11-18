@@ -1,14 +1,10 @@
-import Dao.UserDataDao;
-import Entity.UserDataEntity;
-import com.mysql.jdbc.TimeUtil;
+import com.syf.Entity.UserDataEntity;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.Assert;
-import org.springframework.util.CollectionUtils;
 
-import java.sql.ResultSet;
 import java.util.*;
 import java.util.function.*;
 

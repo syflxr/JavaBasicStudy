@@ -1,4 +1,4 @@
-package Annotation;
+package com.syf.Annotation;
 
 import java.lang.annotation.*;
 

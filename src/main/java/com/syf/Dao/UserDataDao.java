@@ -1,19 +1,33 @@
-package Dao;
+package com.syf.Dao;
 
-import Annotation.Table;
-import Entity.UserDataEntity;
-import Utils.Utils;
+import com.syf.Entity.UserDataEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
-import java.util.Date;
 
 @Repository
-public class UserDataDao extends AbstractDao<UserDataEntity>{
-    public UserDataDao(){}
+public class UserDataDao extends AbstractDao<UserDataEntity> {
+    public UserDataDao(String s){}
+    private static volatile UserDataDao instance;
+    public void testSpring(){
+        System.out.println("spring test");
+    }
 
+    public static UserDataDao getInstance(){
+        if(instance==null){
+            synchronized (UserDataDao.class){
+                if(instance==null){
+                    return new UserDataDao("1");
+                }
+            }
+        }
+        return instance;
+    }
 
 
     public ResultSet sqlQuery(String sql){
@@ -54,7 +68,7 @@ public class UserDataDao extends AbstractDao<UserDataEntity>{
     public void update2(){
         try {
             PreparedStatement ps=connection.prepareStatement("UPDATE "+getTableName()+" SET lasttime=? where lasttime<?");
-            ps.setObject(1,new java.util.Date());
+            ps.setObject(1,new Date());
             ps.setObject(2,new Date());
 
             ps.executeUpdate();
@@ -97,7 +111,7 @@ public class UserDataDao extends AbstractDao<UserDataEntity>{
     public void getSpecialCount(){
         try{
             PreparedStatement ps=connection.prepareStatement("select * from userdata where lasttime<?");
-            ps.setObject(1,new java.util.Date());
+            ps.setObject(1,new Date());
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()){
                 UserDataEntity temp=new UserDataEntity();

@@ -1,6 +1,6 @@
-package Entity;
+package com.syf.Entity;
 
-import Annotation.Table;
+import com.syf.Annotation.Table;
 
 import java.util.Date;
 

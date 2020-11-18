@@ -1,6 +1,6 @@
 package Utils;
 
-import Annotation.Column;
+import com.syf.Annotation.Column;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;

@@ -2,7 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean id="userDataDao" class="Dao.UserDataDao">
-</bean>
-
+<!--bean id="userDataDao" class="Dao.UserDataDao" scope="prototype">
+</bean-->
+<bean id="userDataDao" class="com.syf.Dao.UserDataDao" factory-method="getInstance"></bean>
+    <bean id="dependencyInject" class="spring.DependencyInject">
+        <property name="name" value="syf"></property>
+        <property name="age" value="12"></property>
+        <property name="date" ref="now"></property>
+    </bean>
+    <bean id="now" class="java.util.Date"></bean>
 </beans>

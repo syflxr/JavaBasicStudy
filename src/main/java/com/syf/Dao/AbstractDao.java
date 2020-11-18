@@ -1,14 +1,12 @@
-package Dao;
+package com.syf.Dao;
 
-import Annotation.Table;
-import javafx.scene.control.Tab;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * @Auther: shenyafeng
