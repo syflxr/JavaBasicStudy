@@ -16,33 +16,6 @@ public class UserDataDaoTest {
 
 
 
-
-    /**
-     * 功能描述:String类方法测试
-     *
-     * @param: []
-     * @return: void
-     * @auther: shenyafeng
-     * @date: 2020/11/5 19:40
-     */
-    @Test
-    public void testString() {
-        String str = "abcabcabcabc";
-        String result = str.replaceAll("abc", "cde");
-        System.out.println(result);//cdecdecdecde
-        System.out.println(Arrays.toString(str.split("c")));//[ab, ab, ab, ab]
-        System.out.println(str.substring(0,2));//ab
-        System.out.println(str.toLowerCase());
-        System.out.println(str.toUpperCase());//ABCABCABCABC
-        System.out.println(str.indexOf('b'));//1
-        System.out.println(str.indexOf('b',3));//4
-        System.out.println(str.lastIndexOf('b'));
-        System.out.println(str.lastIndexOf('b',9));
-        str=" "+str+" ";// abcabcabcabc
-        System.out.println(str);
-        System.out.println(str.trim());
-    }
-
     /**
      * 功能描述:StringBuilder类方法测试
      *
@@ -107,8 +80,8 @@ public class UserDataDaoTest {
     }
 
     @Test
-    public void collectionTest(){
-        Map<Long,Long> map=new HashMap();
+    public void collectionTest() {
+        Map<Long, Long> map = new HashMap();
     }
 
     @Test
@@ -226,8 +199,8 @@ public class UserDataDaoTest {
         Runnable r = () -> {
             t1.str1 = "1";
         };
-        String result2=supplierTest(()->{
-            String str=new String("supply");
+        String result2 = supplierTest(() -> {
+            String str = new String("supply");
             return str;
         });
         System.out.println(result2);
@@ -303,16 +276,37 @@ public class UserDataDaoTest {
 
 
     @Test
-    public void fun(){
+    public void fun() {
         System.out.println("i love lxr");
     }
 
     @Test
-    public void testLong() throws Exception{
-        ApplicationContext context=new ClassPathXmlApplicationContext("bean.xml");
-        UserDataDao userDataDao = (UserDataDao)context.getBean("userDataDao");
+    public void testLong() throws Exception {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+        UserDataDao userDataDao = (UserDataDao) context.getBean("userDataDao");
         userDataDao.getList(null).forEach(System.out::println);
         System.out.println(new Date());
+    }
+
+    public static String getPlatformRelatedDomain(String url) {
+        try {
+            return new URL(url).getHost();
+        } catch (Exception e) {
+        }
+        return "";
+    }
+
+    @Test
+    public void StringTest() {
+        String url = "https://";
+        String url1 = "https://a/";
+        String url2 = "a/abc/";
+        System.out.println(getPlatformRelatedDomain(url));
+        System.out.println(getPlatformRelatedDomain(url1));
+        System.out.println(getPlatformRelatedDomain(url2));
+
+        String[] arr = new String[]{"1", "1", "1", "1", "1"};
+        System.out.println(CollectionUtils.arrayToList(arr));
     }
 
 }
