@@ -1,5 +1,6 @@
 package com.syf.Dao;
 
+import com.syf.Annotation.Table;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.ParameterizedType;

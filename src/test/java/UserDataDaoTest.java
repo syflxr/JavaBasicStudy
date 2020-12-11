@@ -1,4 +1,4 @@
-import com.syf.Entity.UserDataEntity;
+import com.syf.Dao.UserDataDao;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
