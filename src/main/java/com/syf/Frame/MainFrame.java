@@ -68,7 +68,7 @@ public class MainFrame {
                 entity.setLastTime(new Date());
                 entity.setTime(new Date());
 
-                MainFrame.userDataDao.insert(entity);
+                //MainFrame.userDataDao.insert(entity);
                 StringBuilder sb=new StringBuilder();
                 sb.append("成功将").append("\"").append(text).append("\"").append("存入数据库");
                 dim2.addElement(sb.toString());
@@ -82,7 +82,7 @@ public class MainFrame {
         container.add(button);
         container.add(button2);
         container.add(field);
-        ApplicationContext context= new ClassPathXmlApplicationContext("bean.xml");
+        /*ApplicationContext context= new ClassPathXmlApplicationContext("bean.xml");
         UserDataDao dao=(UserDataDao) context.getBean("userDataDao");
         Map<Integer, UserDataEntity> map = dao.getMap();
         Map<String,Integer> itemMap=new HashMap<>();
@@ -92,7 +92,7 @@ public class MainFrame {
         for(Map.Entry<String,Integer> entry:itemMap.entrySet()){
             dim1.addElement(entry.getKey());
             list.setModel(dim1);
-        }
+        }*/
 
 
 

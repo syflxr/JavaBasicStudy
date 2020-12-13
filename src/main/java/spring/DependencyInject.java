@@ -4,12 +4,18 @@ package spring;/*
  *@date
  */
 
+import org.springframework.beans.factory.annotation.Autowired;
+import spring.service.IOrderService;
+
 import java.util.Date;
 
 public class DependencyInject {
     private String name;
     private Integer age;
     private Date date;
+
+    @Autowired
+    IOrderService orderService;
     public DependencyInject(){}
     public DependencyInject(String name,Integer age,Date date){
         this.name=name;
@@ -40,5 +46,9 @@ public class DependencyInject {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public int getOrderCount(){
+        return orderService.countAllOrders();
     }
 }

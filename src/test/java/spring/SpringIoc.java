@@ -22,5 +22,6 @@ public class SpringIoc {
         ApplicationContext context = (ApplicationContext) new ClassPathXmlApplicationContext("bean.xml");
         DependencyInject dependencyInject=(DependencyInject) context.getBean("dependencyInject");
         System.out.println(dependencyInject.getAge()+" "+dependencyInject.getName()+" "+dependencyInject.getDate());
+        System.out.println(dependencyInject.getOrderCount());
     }
 }
