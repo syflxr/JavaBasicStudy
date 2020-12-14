@@ -14,7 +14,7 @@ import spring.DependencyInject;
  */
 
 @Configuration
-@ComponentScan("spring")
+@ComponentScan("spring.*")
 public class CommonSpringConfig {
     
     /** 
@@ -30,7 +30,7 @@ public class CommonSpringConfig {
         return new QueryRunner();
     }
 
-    @Bean("DependencyInject")
+    @Bean("dependencyInject")
     DependencyInject getDependencyInject(){
         return new DependencyInject();
     }
