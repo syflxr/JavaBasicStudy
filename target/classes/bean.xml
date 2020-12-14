@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"Schema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-        <!--bean id="userDataDao" class="Dao.UserDataDao" scope="prototype">
-        </bean-->
-<bean id="userDataDao" class="com.syf.Dao.UserDataDao" factory-method="getInstance"></bean>
-<
+<beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLbean id="dependencyInject" class="spring.DependencyInject">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<!--bean id="userDataDao" class="Dao.UserDataDao" scope="prototype">
+        </bean-->
+    <bean id="userDataDao" class="com.syf.Dao.UserDataDao" factory-method="getInstance"></bean>
+
+    <!--bean id="dependencyInject" class="spring.DependencyInject">
         <property name="name" value="syf"></property>
         <property name="age" value="12"></property>
         <property name="date" ref="now"></property>
-    </bean>
+    </bean-->
+
     <bean id="now" class="java.util.Date"></bean>
-    <context:component-scan base-package="com.syf"></context:component-scan>
+
+    <context:component-scan base-package="spring.service"></context:component-scan>
 </beans>
 

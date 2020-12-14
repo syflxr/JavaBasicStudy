@@ -6,8 +6,11 @@ package spring;/*
 
 import com.syf.Dao.UserDataDao;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring.config.CommonSpringConfig;
 
 public class SpringIoc {
     public static void main(String[] args) {
@@ -18,10 +21,19 @@ public class SpringIoc {
     }
 
     @Test
-    public void dependInjectTest(){
+    public void dependInjectTestUsingxml(){
+        //测试构造函数注入
         ApplicationContext context = (ApplicationContext) new ClassPathXmlApplicationContext("bean.xml");
         DependencyInject dependencyInject=(DependencyInject) context.getBean("dependencyInject");
         System.out.println(dependencyInject.getAge()+" "+dependencyInject.getName()+" "+dependencyInject.getDate());
         System.out.println(dependencyInject.getOrderCount());
+        dependencyInject.testAutowired();
+    }
+
+    @Test
+    public void dependInjectTestUsingAnnotation(){
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(CommonSpringConfig.class);
+        DependencyInject dependencyInject = (DependencyInject)context.getBean("dependencyInject");
+        dependencyInject.testAutowired();
     }
 }
