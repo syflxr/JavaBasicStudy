@@ -33,7 +33,9 @@ public class RedisUtil {
 
     public static void main(String[] args) {
         Jedis jedis = RedisUtil.getJedis();
-        jedis.setex("syf10", 10,"syf");
+        jedis.setex("syf10", 20,"syf");
         System.out.println(jedis.get("syf"));
+        //输出剩余生存时间
+        System.out.println(jedis.ttl("syf10"));
     }
 }

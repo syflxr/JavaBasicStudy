@@ -21,8 +21,7 @@ public class SettingUtil {
     private static final String SETTING_FILE_PATH= SettingUtil.class.getClassLoader().getResource(SETTING_FILE_NAME).getPath();
     static{
         try {
-            System.out.println(SETTING_FILE_PATH.substring(1,SETTING_FILE_PATH.length()));
-            in=new FileReader(SETTING_FILE_PATH.substring(1,SETTING_FILE_PATH.length()));
+            in=new FileReader(SETTING_FILE_PATH);
             helper.load(in);
         } catch (Exception e) {
             System.out.println("加载配置文件失败");
