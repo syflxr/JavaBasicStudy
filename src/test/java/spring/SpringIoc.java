@@ -33,7 +33,7 @@ public class SpringIoc {
     @Test
     public void dependInjectTestUsingAnnotation(){
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(CommonSpringConfig.class);
-        DependencyInject dependencyInject = (DependencyInject)context.getBean("dependencyInject");
+        DependencyInject dependencyInject = (DependencyInject)context.getBean(DependencyInject.class);
         dependencyInject.testAutowired();
     }
 }

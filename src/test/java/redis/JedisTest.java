@@ -34,6 +34,7 @@ public class JedisTest {
     @Test
     public void get(){
         Jedis jedis=new Jedis("117.50.10.66",6379);
+        jedis.set("syf","syf");
         String syf = jedis.get("syf");
         System.out.println(syf);
 
