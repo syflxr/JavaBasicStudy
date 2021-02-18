@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/regist.css" rel="stylesheet" type="text/css">
+    <title>请先登录</title>
+    <script type="text/javascript">
+        var reg=/^[a-zA-Z]\w*$/;
+        var flag1=false,flag2=false,flag3=false;
+        function chang1(obj){
+            var name=obj.value;
+            if(name.length<3||name.length>8){
+                //alert("密码要求3-8位！");
+                document.getElementById("usName").innerHTML="<font color='red'> 用户名要求3-8位！</font>";
+            }
+            else if(!reg.test(name)){
+                //alert("用户名由字母开头，后字母、数字或下划线!");
+                document.getElementById("usName").innerHTML="<font color='red'> 用户名由字母开头，后字母、数字或下划线</font>";
+                flag1=false;
+            }
+            else{
+                flag1=true;
+                document.getElementById("usName").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+        function chang2(obj){
+            var pwd=obj.value;
+            if(pwd.length<3||pwd.length>8){
+                //alert("密码要求3-8位！");
+                document.getElementById("ps1").innerHTML="<font color='red'>密码要求3-8位！</font>";
+                flag2=false;
+            }
+            else{
+                document.getElementById("ps1").innerHTML="<font color='green'>可以使用</font>";
+                flag2=true;
+            }
+        }
+
+        function sub(){
+            if(flag1&&flag2){
+                document.regist.submit();
+            }
+        }
+        function res(){
+            document.regist.username.value="";
+            document.regist.password.value="";
+            document.regist.passwordAgain.value="";
+            document.getElementById("usName").innerHTML="";
+            document.getElementById("ps1").innerHTML="";
+            document.getElementById("ps2").innerHTML="";
+        }
+    </script>
+</head>
+<body>
+<form method="POST" name="regist" action="http://117.50.10.66:8080">
+    <table style="height: 100%; width: 100%">
+        <tr align="center" valign="middle">
+            <td>
+                <TABLE width="392" height="200" border=0 align="center" cellPadding=0
+                       cellSpacing=0
+                       style="background-image: url(./images/login_Page/logPage.jpg); height: 200; width: 392">
+                    <TBODY>
+
+                    <TR>
+                        <td width="80" height="20" class="login_td" >   用户名：</td>
+                        <td width="120" height="20" class="login_td"><input
+                                type="text" name="username" value="" style="WIDTH: 110px"
+                                onChange="chang1(this)"></td>
+                        <td id="usName"></td>
+                    </tr>
+                    <tr>
+                        <td height="20" class="login_td">   密 码：</td>
+                        <td height="20" class="login_td"><input type="password"
+                                                                name="password" value="" style="WIDTH: 110px"
+                                                                onChange="chang2(this)"></td>
+                        <td id="ps1"></td>
+                    </tr>
+                    <tr>
+                        <td height="20" colspan="2" align="center">
+                            <button class="login_button" onClick=sub();>登录(未注册时登录即注册)</button>
+                             </td>
+                    </TR>
+                    </TBODY>
+                </TABLE>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
